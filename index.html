@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina Produccion Electronica</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            list-style: none;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            padding-top: 80px; /* Espacio para el header fijo */
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* HEADER FIJO */
+        .header-fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: #15409b;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            padding: 10px 0;
+        }
+
+        .header {
+            background-color: #15409b;
+            display: flex;
+            align-items: center;
+            min-height: 80vh;
+            padding: 80px 0 0 0;
+        }
+
+        .menu {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0 20px;
+        }
+
+        .logo {
+            color: #EEEFF3;
+            font-size: 25px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            height: 40px; /* Ajusta según el tamaño de tu imagen */
+            width: auto;
+        }
+
+        .menu .navbar ul li {
+            position: relative;
+            float: left;
+        }
+
+        .menu .navbar ul li a {
+            font-size: 18px;
+            padding: 20px;
+            color: #FFF9FA;
+            display: block;
+            font-weight: 600;
+        }
+
+        .menu .navbar ul li a:hover {
+            color: #4cf3ff; /*para los enlaces */
+        }
+
+        #menu {
+            display: none;
+        }
+
+        .menu-icono {
+            width: 25px;
+        }
+
+        .menu label {
+            cursor: pointer;
+            display: none;
+        }
+
+        .header-content {
+            display: flex;
+            padding-top: 60px; /* Compensa el header fijo */
+        }
+
+        .header-txt {
+            width: 50%;
+            margin-right: 80px;
+        }
+
+        .header-txt h1 {
+            color: #FFF9FA;
+            font-size: 55px;
+            line-height: 1;
+            text-transform: uppercase;
+            margin-bottom: 35px;
+        }
+
+        .header-txt p {
+            font-size: 16px;
+            color: #D5D5D5;
+            margin-bottom: 45px;
+        }
+
+        .header-img {
+            width: 50%;
+            text-align: center;
+        }
+
+        .btn-1 {
+            display: inline-block;
+            padding: 13px 35px;
+            color: #FFF9FA;
+            border: 1px solid #FFF9FA;
+            border-radius: 35px;
+        }
+
+        .btn-1:hover {
+            background-color: #4c9aff;
+            border: 1px solid #4c9aff;
+        }
+
+        .m-content {
+            display: flex;
+            justify-content: space-between;
+            padding: 50px 0;
+        }
+
+        .m-content img {
+            width: 150px;
+        }
+
+        .cards {
+            padding: 100px 0;
+            background-color: #FCF5EB;
+        }
+
+        .cards-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            flex: 0 0 calc(33.3% - 20px);
+            display: flex;
+            margin-bottom: 25px;
+            padding: 25px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            background-color: #FFFFFF;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .card::after {
+            content: '';
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            width: 20px;
+            height: 20px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2315409b'%3E%3Cpath d='M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover::after {
+            transform: translateX(5px);
+        }
+
+        .card-link {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .card-text {
+            width: 50%;
+            margin-right: 15px;
+        }
+
+        .card-text h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #2B2B2B;
+        }
+
+        .card-text p {
+            font-size: 15px;
+            color: #2B2B2B;
+        }
+
+        .card-img {
+            width: 50%;
+        }
+
+        /* Sección de integrantes */
+        .team {
+            padding: 100px 0;
+            background-color: #462a8c;
+        }
+        
+        .team-content {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 60px;
+            padding: 50px 0;
+        }
+        
+        .team-member {
+            text-align: center;
+            max-width: 280px;
+        }
+        
+        .member-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #4c9aff;
+            margin: 0 auto 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .member-info h3 {
+            color: #FFF9FA;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+        
+        .member-info p {
+            color: #EEEEEE;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+        
+        .member-email {
+            color: #4cf3ff !important;
+            font-weight: 500;
+        }
+        
+        .team-title {
+            text-align: center;
+            color: #FFF9FA;
+            font-size: 55px;
+            margin-bottom: 20px;
+        }
+        
+        .team-description {
+            text-align: center;
+            color: #EEEEEE;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .video-1 {
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .video {
+            width: 50px 0;
+        }
+
+        .footer {
+            padding: 50px 0;
+            background-color: #1F2229;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .link h3 {
+            color: #FFF9FA;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .link a {
+            color: #EEEEEE;
+            font-size: 16px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .link a:hover {
+            color: #FFBD4C;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        @media (max-width:991px) {
+            body {
+                padding-top: 70px;
+            }
+
+            .menu {
+                padding: 10px;
+            }
+
+            .menu label {
+                display: initial;
+            }
+
+            .menu .navbar {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: #FFBD4C;
+                display: none;
+            }
+
+            .menu .navbar ul li a:hover {
+                color: #2B2B2B;
+            }
+
+            .menu .navbar ul li {
+                width: 100%;
+            }
+            
+            #menu:checked ~ .navbar{
+                display: initial;
+            }
+
+            .header {
+                min-height: 0vh;
+            }
+
+            .header-content {
+                padding: 30px;
+                flex-direction: column;
+                padding-top: 30px;
+            }
+
+            .header-txt {
+                width: 100%;
+                text-align: center;
+                margin-bottom: 35%;
+            }
+
+            .header-img {
+                width: 100%;
+            }
+
+            .m-content {
+                display: none;
+            }
+
+            .cards {
+                padding: 30px;
+            }
+
+            .cards-content {
+                flex-direction: column;
+            }
+
+            .team {
+                padding: 30px 0;
+            }
+            
+            .team-content {
+                gap: 40px;
+            }
+            
+            .member-img {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .team-title {
+                font-size: 40px;
+            }
+
+            .video-1 {
+                padding: 30px;
+            }
+
+            .video {
+                width: 100%;
+            }
+
+            .footer {
+                padding: 30px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .team-content {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .team-member {
+                margin-bottom: 40px;
+            }
+            
+            .logo-img {
+                height: 35px; /* Ajuste para móviles */
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Header fijo con logo y menú -->
+    <div class="header-fixed">
+        <div class="menu container">
+            <!-- Logo como imagen en lugar de texto -->
+            <a href="#" class="logo">
+                <img src="imagenes/iberoblanco.png" alt="Logo IBERO" class="logo-img">
+            </a>
+            <input type="checkbox" id="menu" />
+            <label for="menu">
+                <img src="https://cdn-icons-png.flaticon.com/512/56/56763.png" class="menu-icono" alt="Menú">
+            </label>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#integrantes">Integrantes</a></li>
+                    <li><a href="#herramientas">Información</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="header-content container">
+            <div class="header-txt">
+                <h1>Producción Electrónica</h1>
+                <p>
+                    La producción electrónica es la fase industrial en la que un diseño conceptual 
+                    —creado en herramientas como KiCad y validado mediante prototipos con equipos como la fresadora SRM-20— 
+                    se escala para fabricar miles o millones de unidades de forma automatizada, eficiente y confiable.
+                    El objetivo de esta página web es recopilar y difundir toda la información relevante sobre este proceso, 
+                    incluyendo ejemplos prácticos de placas PCB desarrolladas, metodologías utilizadas y 
+                    recursos clave para quienes deseen profundizar en el ámbito de la fabricación electrónica.
+                </p>
+                <a href="#herramientas" class="btn-1">Informacion</a>
+            </div>
+            <div class="header-img">
+                <img src="imagenes/iconofinal.png" alt="Icono de producción electrónica">
+            </div>
+        </div> 
+    </header>
+
+    <section class="m-content container">
+        <img src="imagenes/1.jpg" alt="Imagen 1">
+        <img src="imagenes/2.jpg" alt="Imagen 2">
+        <img src="imagenes/03.png" alt="Imagen 3">
+        <img src="imagenes/4.jpg" alt="Imagen 4">
+        <img src="imagenes/5.jpg" alt="Imagen 5">
+        <img src="imagenes/6.jpg" alt="Imagen 6">
+        <img src="imagenes/7.jpg" alt="Imagen 7">
+    </section>
+    
+    <!-- Anchor para la sección de herramientas -->
+    <a id="herramientas"></a>
+    <main class="cards">
+        <div class="cards-content container">
+            <!-- Tarjeta de KiCad con enlace -->
+            <div class="card" onclick="window.location.href='kicad.html'">
+                <a href="kicad.html" class="card-link"></a>
+                <div class="card-text">
+                    <h3>KiCad</h3>
+                    <p>
+                    KiCad es un software gratuito y de código abierto para Windows, Linux y MacOS, 
+                    que permite diseñar esquemas electrónicos y placas de circuito impreso (PCB).
+                    </p>    
+                </div> 
+                <div class="card-img">
+                    <img src="imagenes/kicad_logo.png" alt="Logo KiCad">
+                </div>
+            </div>
+        
+            <!-- Tarjeta de Mods con enlace -->
+            <div class="card" onclick="window.location.href='mods.html'">
+                <a href="mods.html" class="card-link"></a>
+                <div class="card-text">
+                    <h3>Mods</h3>
+                    <p>
+                    Mods es un programa web para preparar archivos 
+                    y fabricar placas PCB con fresadoras CNC como la Roland.
+                    </p>    
+                </div> 
+                <div class="card-img">
+                    <img src="imagenes/mods.png" alt="Logo Mods">
+                </div>
+            </div>
+            <!-- Tarjeta de MonoFab con enlace -->
+            <div class="card" onclick="window.location.href='monofab.html'">
+                <a href="monofab.html" class="card-link"></a>
+                <div class="card-text">
+                    <h3>MonoFab</h3>
+                    <p>
+                    La MonoFab SRM-20 es una fresadora de precisión que fabrica prototipos 
+                    y PCBs directamente desde un diseño digital.
+                    </p>    
+                </div> 
+                <div class="card-img">
+                    <img src="imagenes/MonoFab.webp" alt="Imagen MonoFab">
+                </div>
+            </div>
+            <!-- Tarjeta de Pistas con enlace -->
+            <div class="card" onclick="window.location.href='pistas.html'">
+                <a href="pistas.html" class="card-link"></a>
+                <div class="card-text">
+                    <h3>Pistas</h3>
+                    <p>
+                    Este apartado consiste en la visualización de las pistas que realizaremos a lo largo de este periodo
+                    </p>    
+                </div> 
+                <div class="card-img">
+                    <img src="imagenes/ejemploPista.jpg" alt="Ejemplo de pistas">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Sección de integrantes con ID -->
+    <section class="team" id="integrantes">
+        <div class="container">
+            <h2 class="team-title">Integrantes</h2>
+            <p class="team-description">
+                ______________________________________________________
+            </p>
+            
+            <div class="team-content">
+                <!-- Integrante 1 -->
+                <div class="team-member">
+                    <img src="imagenes/Elia.jpg" alt="Integrante 1" class="member-img">
+                    <div class="member-info">
+                        <h3>Elia del Carmen Valdés Ávila</h3>
+                        <p>Estudiante de Mecatrónica</p>
+                        <p class="member-email">eliadelcarmen.valdes@iberopuebla.mx</p>
+                    </div>
+                </div>
+                
+                <!-- Integrante 2 -->
+                <div class="team-member">
+                    <img src="imagenes/montIntento.jpg" alt="Integrante 2" class="member-img">
+                    <div class="member-info">
+                        <h3>Montserrat Vázquez Guzmán</h3>
+                        <p>Estudiante de Mecatrónica</p>
+                        <p class="member-email">montserrat.vazquez@iberopuebla.mx</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content container">
+            <div class="link">
+                <h3>Enlaces</h3>
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#integrantes">Integrantes</a></li>
+                    <li><a href="#herramientas">Herramientas</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="link">
+                <h3>Herramientas</h3>
+                <ul>
+                    <li><a href="kicad.html">KiCad</a></li>
+                    <li><a href="mods.html">Mods</a></li>
+                    <li><a href="monofab.html">MonoFab</a></li>
+                    <li><a href="pistas.html">Pistas</a></li>
+                </ul>
+            </div>
+            <div class="link">
+                <h3>Recursos</h3>
+                <ul>
+                    <li><a href="#">Documentación</a></li>
+                    <li><a href="#">Tutoriales</a></li>
+                    <li><a href="#">Proyectos</a></li>
+                    <li><a href="#">Foro</a></li>
+                </ul>
+            </div>
+            <div class="link">
+                <h3>Contacto</h3>
+                <ul>
+                    <li><a href="#">Email</a></li>
+                    <li><a href="#">Teléfono</a></li>
+                    <li><a href="#">Dirección</a></li>
+                    <li><a href="#">Mapa</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
