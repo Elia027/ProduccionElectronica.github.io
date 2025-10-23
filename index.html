@@ -423,6 +423,10 @@
             .header-txt h1 {
                 font-size: 45px;
             }
+            
+            .card {
+                flex: 0 0 calc(50% - 20px);
+            }
         }
 
         @media (max-width: 991px) {
@@ -751,6 +755,22 @@
                     <img src="imagenes/mods.png" alt="Logo Mods">
                 </div>
             </div>
+            
+            <!-- Tarjeta de NI Multisim con enlace -->
+            <div class="card" onclick="window.location.href='multisim.html'">
+                <a href="multisim.html" class="card-link"></a>
+                <div class="card-text">
+                    <h3>NI Multisim</h3>
+                    <p>
+                    Entorno de captura y simulación de esquemas para simular circuitos electrónicos 
+                    y prototipos de placas de circuito impreso (PCB).
+                    </p>    
+                </div> 
+                <div class="card-img">
+                    <img src="imagenes/icon multisim.png" alt="Logo NI Multisim">
+                </div>
+            </div>
+            
             <!-- Tarjeta de MonoFab con enlace -->
             <div class="card" onclick="window.location.href='monofab.html'">
                 <a href="monofab.html" class="card-link"></a>
@@ -765,6 +785,7 @@
                     <img src="imagenes/MonoFab.webp" alt="Imagen MonoFab">
                 </div>
             </div>
+            
             <!-- Tarjeta de Pistas con enlace -->
             <div class="card" onclick="window.location.href='pistas.html'">
                 <a href="pistas.html" class="card-link"></a>
@@ -776,6 +797,21 @@
                 </div> 
                 <div class="card-img">
                     <img src="imagenes/ejemploPista.jpg" alt="Ejemplo de pistas">
+                </div>
+            </div>
+            
+            <!-- Tarjeta de Soldadura con enlace -->
+            <div class="card" onclick="window.location.href='soldadura.html'">
+                <a href="soldadura.html" class="card-link"></a>
+                <div class="card-text">
+                    <h3>Soldadura</h3>
+                    <p>
+                    Guía completa sobre soldadura electrónica: herramientas, técnicas y mejores prácticas 
+                    para crear conexiones permanentes y confiables en circuitos electrónicos.
+                    </p>    
+                </div> 
+                <div class="card-img">
+                    <img src="imagenes/icon soldadura.png" alt="Soldadura Electrónica">
                 </div>
             </div>
         </div>
@@ -852,8 +888,10 @@
                 <ul>
                     <li><a href="kicad.html">KiCad</a></li>
                     <li><a href="mods.html">Mods</a></li>
+                    <li><a href="multisim.html">NI Multisim</a></li>
                     <li><a href="monofab.html">MonoFab</a></li>
                     <li><a href="pistas.html">Pistas</a></li>
+                    <li><a href="soldadura.html">Soldadura</a></li>
                 </ul>
             </div>
             <div class="link">
